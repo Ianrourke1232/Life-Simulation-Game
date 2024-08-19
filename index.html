@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Simulation Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        #game-container {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+        #stats, .features {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #weekly-update {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+        #timer {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>Life Simulation Game</h1>
+        <div id="stats">
+            <p>Day: <span id="dayCount">1</span></p>
+            <p>Energy: <span id="energy">100</span></p>
+            <p>Hunger: <span id="hunger">100</span></p>
+            <p>Happiness: <span id="happiness">100</span></p>
+            <p>Money: $<span id="money">1000</span></p>
+        </div>
+        <div id="actions">
+            <button onclick="work()">Work</button>
+            <button onclick="eat()">Eat</button>
+            <button onclick="sleep()">Sleep</button>
+        </div>
+        <div id="timer">
+            <h2>Next Update In:</h2>
+            <p id="countdown">Loading...</p>
+        </div>
+        <div id="weekly-update" class="hidden">
+            <h2>Weekly Update</h2>
+            <p id="update-content"></p>
+        </div>
+
+        <!-- Home Management -->
+        <div id="home-management" class="hidden">
+            <h2>Home Management</h2>
+            <p>Home Level: <span id="homeLevel">1</span></p>
+            <button onclick="upgradeHome()">Upgrade Home</button>
+            <h3>Inventory:</h3>
+            <ul id="homeInventory"></ul>
+            <button onclick="addItemToHome('New Furniture')">Add Furniture</button>
+        </div>
+
+        <!-- Shopping -->
+        <div id="shopping" class="hidden">
+            <h2>Shopping</h2>
+            <button onclick="buyItem('Furniture', 200)">Buy Furniture - $200</button>
+            <button onclick="buyItem('Electronics', 500)">Buy Electronics - $500</button>
+            <h3>Your Inventory:</h3>
+            <ul id="shoppingInventory"></ul>
+        </div>
+
+        <!-- Real Estate -->
+        <div id="real-estate" class="hidden">
+            <h2>Real Estate</h2>
+            <button onclick="buyProperty('Small House', 1000)">Buy Small House - $1000</button>
+            <button onclick="buyProperty('Large House', 5000)">Buy Large House - $5000</button>
+            <h3>Owned Properties:</h3>
+            <ul id="realEstate"></ul>
+        </div>
+
+        <!-- Investments -->
+        <div id="investments-section" class="hidden">
+            <h2>Investments</h2>
+            <button onclick="makeInvestment('Stocks', 1000)">Invest in Stocks - $1000</button>
+            <button onclick="makeInvestment('Business', 3000)">Invest in Business - $3000</button>
+            <h3>Your Investments:</h3>
+            <ul id="investments"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
